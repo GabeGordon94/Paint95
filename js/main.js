@@ -203,7 +203,6 @@ rowTwo.appendChild(boxYellow);
 var row = document.createElement('div');
 row.id = 'rowThree';
 row.className = 'row';
-row.style.backgroundColor = 'grey';
 row.style.display = "flex;"
 leftBar.appendChild(row);
 var rowThree = document.getElementById('rowThree');
@@ -296,6 +295,7 @@ row.id = 'rowSix';
 row.className = 'row';
 row.style.display = "flex";
 row.style.height = 'auto';
+row.style.marginBottom='3%';
 leftBar.appendChild(row);
 var rowSix = document.getElementById('rowSix');
 var clear = document.createElement('button');
@@ -323,8 +323,7 @@ var rowSeven = document.getElementById('rowSeven');
 var btn = document.createElement('button');
 btn.innerHTML = "Toggle Toolbar";
 btn.id = 'toggle'
-btn.style.backgroundColor = 'white';
-btn.style.marginTop = '10px';
+btn.style.backgroundColor = 'white';;
 rowSeven.appendChild(btn);
 
 let $onOff = $('#toggle');
@@ -359,9 +358,7 @@ canvas.addEventListener('mousedown', function (e) {
 canvas.addEventListener('mouseup', function () {
     move = false;
 });
-/* canvas.addEventListener("mouseout", function () {
-    move = false;
-}); */
+
 canvas.addEventListener('mousemove', (e) => {
     if (move) {
         paint(e);
