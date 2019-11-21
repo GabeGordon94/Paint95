@@ -42,6 +42,7 @@ function paint(e) {
         //console.log(xPos);
         //console.log(yPos);
         let stroke = document.createElement('div');
+        stroke.className = "stroke";
         stroke.style.position = 'absolute';
         stroke.style.backgroundColor = color;
         stroke.style.width = size + 'px';
@@ -73,7 +74,7 @@ function setHeight() {
     let heightNew = document.getElementById('inH');
     canvas.style.height = heightNew.value + 'px';
 
-
+    clearOutliers();
 
 }
 
@@ -81,6 +82,7 @@ function setWidth() {
     let canvas = document.getElementById('canvas');
     let widthNew = document.getElementById('inW');
     canvas.style.width = widthNew.value + 'px';
+    clearOutliers();
 }
 
 function clearCanvas() {
@@ -124,6 +126,30 @@ function changeShape(e) {
     }
 }
 
+function clearOutliers(){
+    let canvas = document.getElementById('canvas');
+    //get x and y of canvas box
+    let rect = canvas.getBoundingClientRect();
+    let rectLeft = rect.left;
+    let rectRight = rect.right;
+    let rectTop = rect.top;
+    let rectBottom = rect.bottom;
+    
+    let strokes = $('.stroke');
+    
+    for(var i=0;i<strokes.length;i++){
+        let strokeRect = strokes[i].getBoundingClientRect();
+        let strokesLeft = strokeRect.left;
+        let strokesRight = strokeRect.right;
+        let strokesTop = strokeRect.top;
+        let strokesBottom = strokeRect.bottom;
+        if(strokesTop >= rectBottom || strokesLeft >= rectRight){
+            strokes[i].remove();
+        }
+    }    
+
+}
+
 //changeable variables
 var color = "blue";
 var degree = 0;
@@ -134,7 +160,6 @@ $('<style>.activateShape { background-color: '+color+'; }</style>').appendTo('bo
 
 //var size = 10;
 var wrapper = document.createElement('div');
-wrapper.style.display = 'flex';
 wrapper.id = 'wrap';
 document.body.append(wrapper);
 
@@ -184,7 +209,8 @@ leftBar.appendChild(row);
 var rowThree = document.getElementById('rowThree');
 var input = document.createElement('input');
 var label = document.createElement('label');
-label.innerHTML = "Enter Cursor Size";
+label.innerHTML = "Cursor Size ";
+label.style.marginRight = '4px';
 input.type = 'number';
 input.id = 'in';
 input.min = 5;
@@ -223,12 +249,14 @@ var labelH = document.createElement('label');
 inputW.type = 'range';
 inputW.id = 'inW';
 inputW.max = 1000;
+inputW.min = 100;
 inputW.value = 500;
 inputW.style.width = '90%';
 labelW.innerHTML = "Enter Width";
 inputH.type = 'range';
 inputH.id = 'inH';
 inputH.max = 1000;
+inputH.min = 100;
 inputH.value = 500;
 inputH.style.width = '90%';
 labelH.innerHTML = "Enter Height";
@@ -293,7 +321,7 @@ row.style.justifyContent = 'center';
 leftBar.appendChild(row);
 var rowSeven = document.getElementById('rowSeven');
 var btn = document.createElement('button');
-btn.innerHTML = "On/Off";
+btn.innerHTML = "Toggle Toolbar";
 btn.id = 'toggle'
 btn.style.backgroundColor = 'white';
 btn.style.marginTop = '10px';
@@ -323,7 +351,7 @@ wrapper.append(createCanvas);
 var canvas = document.getElementById('canvas');
 var move = false;
 
-//canvas.addEventListener('click',paint);
+canvas.addEventListener('click',paint);
 canvas.addEventListener('mousedown', function (e) {
     move = true;
 });
