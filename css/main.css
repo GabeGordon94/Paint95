@@ -14,7 +14,8 @@ background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%); */
  }
 
  .activate{
-     border:2px solid black;
+    box-shadow: 2px 3px 28px -1px rgba(0,0,0,0.75);
+    
  }
  /*.activateShape{
      background-color:white;

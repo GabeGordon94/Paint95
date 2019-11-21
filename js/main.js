@@ -316,13 +316,13 @@ row.style.marginBottom='3%';
 leftBar.appendChild(row);
 var rowSix = document.getElementById('rowSix');
 var clear = document.createElement('button');
-var flip = document.createElement('button');
+//var flip = document.createElement('button');
 clear.innerHTML = "Clear Page";
 clear.style.width = '50%';
-flip.innerHTML = "Flip";
-flip.style.width = '50%';
+//flip.innerHTML = "Flip";
+//flip.style.width = '50%';
 rowSix.appendChild(clear);
-rowSix.appendChild(flip);
+//rowSix.appendChild(flip);
 
 //row - Save and load
 var row = document.createElement('div');
@@ -407,7 +407,7 @@ image.addEventListener('click', changeColor);
 inputW.addEventListener("change", setWidth);
 inputH.addEventListener("change", setHeight);
 clear.addEventListener('click', clearCanvas);
-flip.addEventListener('click', flipCanvas);
+//flip.addEventListener('click', flipCanvas);
 sqr.addEventListener('click', changeShape);
 circle.addEventListener('click', changeShape);
 save.addEventListener('click',saveStorage);
