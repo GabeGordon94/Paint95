@@ -68,15 +68,12 @@ function changeColor(e) {
 }
 
 function setHeight() {
-    clearCanvas();
-
     let canvas = document.getElementById('canvas');
     let heightNew = document.getElementById('inH');
     canvas.style.height = heightNew.value + 'px';
 }
 
 function setWidth() {
-    clearCanvas();
     let canvas = document.getElementById('canvas');
     let widthNew = document.getElementById('inW');
     canvas.style.width = widthNew.value + 'px';
@@ -209,13 +206,13 @@ var inputW = document.createElement('input');
 var labelW = document.createElement('label');
 var inputH = document.createElement('input');
 var labelH = document.createElement('label');
-inputW.type = 'number';
+inputW.type = 'range';
 inputW.id = 'inW';
 inputW.max = 1000;
 inputW.value = 500;
 inputW.style.width = '90%';
 labelW.innerHTML = "Enter Width";
-inputH.type = 'number';
+inputH.type = 'range';
 inputH.id = 'inH';
 inputH.max = 1000;
 inputH.value = 500;
@@ -233,6 +230,7 @@ row.style.display = "flex";
 row.className = "row";
 row.style.padding = '3px';
 row.style.border = "none";
+row.style.marginTop= '4%';
 leftBar.appendChild(row);
 var rowEight = document.getElementById('rowEight');
 var sqr = document.createElement('div');
