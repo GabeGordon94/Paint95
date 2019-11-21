@@ -108,6 +108,10 @@ function flipCanvas() {
 }
 
 function changeShape(e) {
+    let btn = $(this);
+    let bar = $('#rowEight');
+    bar.find('div').removeClass('activateShape');
+    btn.addClass('activateShape');
     if (e.target.id == 'circle') {
         shape = 50;
     } else {
@@ -242,8 +246,6 @@ sqr.style.borderRadius = "0";
 circle.style.border = "1px solid black";
 circle.style.borderRadius = "50%";
 circle.style.marginLeft = '1px';
-circle.style.backgroundColor = "lightblue";
-sqr.style.backgroundColor = "lightblue";
 circle.id = "circle";
 sqr.id = 'square';
 rowEight.appendChild(sqr);
@@ -283,7 +285,7 @@ var rowSeven = document.getElementById('rowSeven');
 var btn = document.createElement('button');
 btn.innerHTML = "On/Off";
 btn.id = 'toggle'
-btn.style.backgroundColor = 'grey';
+btn.style.backgroundColor = 'white';
 btn.style.marginTop = '10px';
 rowSeven.appendChild(btn);
 
@@ -291,6 +293,7 @@ let $onOff = $('#toggle');
 $onOff.on('click', function () {
     let $leftBar = $('.row');
     $leftBar.slideToggle();
+    $('#leftBar').toggleClass('bg-none');
 })
 
 
