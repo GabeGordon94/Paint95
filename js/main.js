@@ -65,12 +65,16 @@ function changeColor(e) {
     btn.addClass('activate');
     let newColor = ele.style.backgroundColor;
     color = newColor;
+    $('<style>.activateShape { background-color: '+color+'; }</style>').appendTo('body');
 }
 
 function setHeight() {
     let canvas = document.getElementById('canvas');
     let heightNew = document.getElementById('inH');
     canvas.style.height = heightNew.value + 'px';
+
+
+
 }
 
 function setWidth() {
@@ -112,6 +116,7 @@ function changeShape(e) {
     let bar = $('#rowEight');
     bar.find('div').removeClass('activateShape');
     btn.addClass('activateShape');
+    $('<style>.activateShape { background-color: '+color+'; }</style>').appendTo('body');
     if (e.target.id == 'circle') {
         shape = 50;
     } else {
@@ -123,6 +128,10 @@ function changeShape(e) {
 var color = "blue";
 var degree = 0;
 var shape = 0;
+$('<style>.activateShape { background-color: '+color+'; }</style>').appendTo('body');
+
+
+
 //var size = 10;
 var wrapper = document.createElement('div');
 wrapper.style.display = 'flex';
@@ -157,8 +166,9 @@ leftBar.appendChild(row);
 var rowTwo = document.getElementById('rowTwo');
 var boxBlue = document.createElement('button');
 var boxYellow = document.createElement('button');
-boxBlue.className = "box";
+boxBlue.className = "box activate";
 boxBlue.style.backgroundColor = 'blue';
+
 boxYellow.className = "box";
 boxYellow.style.backgroundColor = 'yellow';
 rowTwo.appendChild(boxBlue);
@@ -239,7 +249,7 @@ leftBar.appendChild(row);
 var rowEight = document.getElementById('rowEight');
 var sqr = document.createElement('div');
 var circle = document.createElement('div');
-sqr.className = "box";
+sqr.className = "box activateShape ";
 circle.className = "box";
 sqr.style.border = "1px solid black";
 sqr.style.borderRadius = "0";
