@@ -16,20 +16,14 @@ function paint(e) {
     console.log("rectLeft" + rectLeft);
     console.log("rectright" + rectRight);
 
-    if (color == 'white') {
+    if (color == 'lightblue') {
 
         size = 100;
         //console.log(size);
     } else {
         size = document.getElementById('in').value;
         //console.log('lets go');
-        if (color == 'white') {
-
-            size = 100;
-            //console.log(size);
-        } else {
-            size = document.getElementById('in').value;
-        }
+       
     }
 
     //check if click is in div 
@@ -108,9 +102,9 @@ function clearCanvas() {
 }
 
 function flipCanvas() {
-    degree += 90;
-    let canvas = document.getElementById('canvas');
-    canvas.style.transform = `rotate(${degree}deg)`;
+    //degree += 90;
+    //let canvas = document.getElementById('canvas');
+    //canvas.style.transform = `rotate(${degree}deg)`;
 }
 
 function changeShape(e) {
@@ -229,7 +223,7 @@ var rowFour = document.getElementById('rowFour');
 var image = document.createElement('button');
 image.style.width = '100%';
 image.style.height = '100%';
-image.style.backgroundColor = "white";
+image.style.backgroundColor = "lightblue";
 image.style.backgroundImage = "url(img/eraser.jpg)";
 image.style.backgroundPosition = 'center';
 rowFour.appendChild(image);
@@ -301,14 +295,31 @@ var rowSix = document.getElementById('rowSix');
 var clear = document.createElement('button');
 var flip = document.createElement('button');
 clear.innerHTML = "Clear";
-clear.style.backgroundColor = 'blue';
 clear.style.width = '50%';
 flip.innerHTML = "Flip";
-flip.style.backgroundColor = 'red';
 flip.style.width = '50%';
 rowSix.appendChild(clear);
 rowSix.appendChild(flip);
 
+//row - Save and load
+var row = document.createElement('div');
+row.id = 'rowSave';
+row.className = 'row';
+row.style.display = "flex";
+row.style.height = 'auto';
+row.style.marginBottom='3%';
+leftBar.appendChild(row);
+var rowSave = document.getElementById('rowSave');
+var save = document.createElement('button');
+var load = document.createElement('button');
+save.style.width = '50%';
+save.innerHTML='Save';
+save.id='save';
+load.style.width = '50%';
+load.innerHTML='Load';
+load.id='load';
+rowSave.appendChild(save);
+rowSave.appendChild(load);
 
 
 
