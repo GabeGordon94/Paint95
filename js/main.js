@@ -137,12 +137,35 @@ function clearOutliers(){
         let strokesRight = strokeRect.right;
         let strokesTop = strokeRect.top;
         let strokesBottom = strokeRect.bottom;
-        if(strokesTop >= rectBottom || strokesLeft >= rectRight){
+        if(strokesTop >= rectBottom || strokesLeft >= rectRight || strokesRight < rectLeft || strokesBottom <= rectTop) {
             strokes[i].remove();
         }
     }    
 
 }
+
+function saveStorage(){
+    let name=prompt("What is the name of the file to save? ");
+    let canvas=document.getElementById('canvas');
+    /*    console.log(JSON.stringify(canvas.innerHTML));
+    console.log(JSON.stringify(canvas[0]));
+    /* console.log($('#canvas')[0]); */
+    /* let obj={'0':`${$('#canvas')}`}; 
+    
+    canvas=JSON.stringify(obj);
+    console.log(canvas); */ 
+    localStorage.setItem(name,`${canvas.innerHTML}`);
+}
+
+function loadStorage(){
+    let canvas=document.getElementById('canvas');
+    let name=prompt("What is the name of the file to load? ");
+    //getItem
+
+    console.log(localStorage.getItem(name));
+    canvas.innerHTML=localStorage.getItem(name);
+}
+
 
 //changeable variables
 var color = "blue";
@@ -294,7 +317,7 @@ leftBar.appendChild(row);
 var rowSix = document.getElementById('rowSix');
 var clear = document.createElement('button');
 var flip = document.createElement('button');
-clear.innerHTML = "Clear";
+clear.innerHTML = "Clear Page";
 clear.style.width = '50%';
 flip.innerHTML = "Flip";
 flip.style.width = '50%';
@@ -387,3 +410,5 @@ clear.addEventListener('click', clearCanvas);
 flip.addEventListener('click', flipCanvas);
 sqr.addEventListener('click', changeShape);
 circle.addEventListener('click', changeShape);
+save.addEventListener('click',saveStorage);
+load.addEventListener('click',loadStorage);
