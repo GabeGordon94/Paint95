@@ -46,8 +46,9 @@ function paint(e) {
         // stroke.style.transform = `translate(${xPos-200}px, ${yPos}px)`
         stroke.style.top = `${yPos}px`
         stroke.style.left = `${xPos}px`
-
+        
         canvas.appendChild(stroke);
+        
 
     }
 }
@@ -210,7 +211,6 @@ var boxBlue = document.createElement('button');
 var boxYellow = document.createElement('button');
 boxBlue.className = "box activate";
 boxBlue.style.backgroundColor = 'blue';
-
 boxYellow.className = "box";
 boxYellow.style.backgroundColor = 'yellow';
 rowTwo.appendChild(boxBlue);
@@ -220,7 +220,7 @@ rowTwo.appendChild(boxYellow);
 var row = document.createElement('div');
 row.id = 'rowThree';
 row.className = 'row';
-row.style.display = "flex;"
+row.style.display = "flex";
 leftBar.appendChild(row);
 var rowThree = document.getElementById('rowThree');
 var input = document.createElement('input');
@@ -240,7 +240,7 @@ rowThree.appendChild(input);
 var row = document.createElement('div');
 row.id = 'rowFour';
 row.className = 'row';
-row.style.display = "flex;"
+row.style.display = "flex";
 leftBar.appendChild(row);
 var rowFour = document.getElementById('rowFour');
 var image = document.createElement('button');
@@ -255,7 +255,8 @@ rowFour.appendChild(image);
 var row = document.createElement('div');
 row.id = 'rowFive';
 row.className = 'row';
-row.style.display = "flex;"
+row.style.display = "flex";
+row.style.flexDirection="column";
 leftBar.appendChild(row);
 var rowFive = document.getElementById('rowFive');
 var inputW = document.createElement('input');
