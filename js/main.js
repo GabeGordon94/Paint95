@@ -65,6 +65,7 @@ function changeColor(e) {
 }
 
 function setHeight() {
+    clearOutliers();
     let canvas = document.getElementById('canvas');
     let heightNew = document.getElementById('inH');
     canvas.style.height = heightNew.value + 'px';
@@ -74,6 +75,7 @@ function setHeight() {
 }
 
 function setWidth() {
+    clearOutliers();
     let canvas = document.getElementById('canvas');
     let widthNew = document.getElementById('inW');
     canvas.style.width = widthNew.value + 'px';
